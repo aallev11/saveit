@@ -1,0 +1,132 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.shouldisaveit.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/itemCost"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Item Cost: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/editItemCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:onClick="changeTextValue"        
+        android:inputType="number"
+        android:width="40dp" >
+        <requestFocus />
+    </EditText>                    
+    </LinearLayout>
+    <TextView        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="This item costs:  "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+        android:orientation="horizontal">
+    
+    <TextView        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="5 years from now:  "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/edit5years"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:onClick="changeTextValue"        
+        android:inputType="number"
+        android:width="40dp" >        
+    </EditText>                    
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+        android:orientation="horizontal">
+    <TextView        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="20 years from now:  "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/edit20years"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:onClick="changeTextValue"        
+        android:inputType="number"
+        android:width="40dp" >
+        <requestFocus />
+    </EditText>                    
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal">
+    <TextView        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="By retirement:  "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/editByRetirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:onClick="changeTextValue"        
+        android:inputType="number"
+        android:width="40dp" >        
+    </EditText>                    
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal">
+        <Button
+        android:id="@+id/worthIt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Worth It" />
+        <Button
+        android:id="@+id/saveIt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save It!" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+    
+    
+
+    
+    
+    <EditText
+        android:id="@+id/editItemCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:onClick="changeTextValue"        
+        android:inputType="number"
+        android:width="40dp" >
+        <requestFocus />
+    </EditText>
+
+</FrameLayout>
+

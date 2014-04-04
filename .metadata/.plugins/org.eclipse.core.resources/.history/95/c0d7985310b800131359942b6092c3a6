@@ -1,0 +1,141 @@
+package com.example.shouldisaveit;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.os.Build;
+import android.preference.PreferenceManager;
+
+public class LifetimeSavings extends ActionBarActivity {
+
+	float interestRate;
+	int age;
+	int retirementAge;
+	String goodsType;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_lifetime_savings);
+		float futureValue;
+		
+		//Load  the lifetime Savings
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		float lifetimeSpending = sharedPreferences.getFloat("LIFETIMESPENDING", 0);
+		float lifetimeSaving = sharedPreferences.getFloat("LIFETIMESAVING", 0);
+		age = sharedPreferences.getInt("AGE", 22);
+		retirementAge = sharedPreferences.getInt("RETIREMENTAGE", 67);
+		interestRate = sharedPreferences.getFloat("INTERESTRATE", (float) 0.08);
+		goodsType = sharedPreferences.getString("GOODSTYPE", "electronics");
+		
+		
+		TextView lifetimeSavingtxb = (TextView) findViewById(R.id.lifeTimeSavings);
+		lifetimeSavingtxb.setText("$"+lifetimeSaving);
+		TextView lifetimeSpendingtxb = (TextView) findViewById(R.id.lifeTimeSpending);
+		lifetimeSpendingtxb.setText("$"+lifetimeSpending);
+		
+		//Set the 5 year saving
+		TextView fiveYrsSave = (TextView) findViewById(R.id.edit5years);
+		futureValue= (float) (lifetimeSaving * Math.pow((1+interestRate),(5)));
+		futureValue*=100;
+		futureValue = Math.round(futureValue);
+		futureValue/=100;					
+		fiveYrsSave.setText("$"+String.format("%.2f",futureValue));
+		
+		//Set the 5 year spending
+		TextView fiveYrsSpend = (TextView) findViewById(R.id.edit5years);
+		futureValue= (float) (lifetimeSaving * Math.pow((1+interestRate),(5)));
+		futureValue*=100;
+		futureValue = Math.round(futureValue);
+		futureValue/=100;					
+		fiveYrsSpend.setText("$"+String.format("%.2f",futureValue));
+		
+		//set the 20 year saving
+		TextView twentyYrsSave = (TextView) findViewById(R.id.edit5years);
+		futureValue= (float) (lifetimeSaving * Math.pow((1+interestRate),(5)));
+		futureValue*=100;
+		futureValue = Math.round(futureValue);
+		futureValue/=100;					
+		twentyYrsSave.setText("$"+String.format("%.2f",futureValue));
+				
+		//set the 20 year spending
+		TextView twentyYrsSpend = (TextView) findViewById(R.id.edit5years);
+		futureValue= (float) (lifetimeSaving * Math.pow((1+interestRate),(5)));
+		futureValue*=100;
+		futureValue = Math.round(futureValue);
+		futureValue/=100;					
+		twentyYrsSpend.setText("$"+String.format("%.2f",futureValue));
+		
+		
+		//set the retirement saving
+		TextView retirementSave = (TextView) findViewById(R.id.edit5years);
+		futureValue= (float) (lifetimeSaving * Math.pow((1+interestRate),(5)));
+		futureValue*=100;
+		futureValue = Math.round(futureValue);
+		futureValue/=100;					
+		retirementSave.setText("$"+String.format("%.2f",futureValue));
+		
+		
+		//set the retirement spending
+		
+		
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.lifetime_savings, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(
+					R.layout.fragment_lifetime_savings, container, false);
+			return rootView;
+		}
+	}
+
+}
